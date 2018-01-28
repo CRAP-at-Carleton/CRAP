@@ -23,15 +23,27 @@ class Home extends React.Component {
     // let courseNames = this.props.courses.map(course => course.dept + course.course_num);
     let courses = this.props.courses;
     let departments = [...new Set(courses.map(course => course.dept))];
-    let times = courses.map(course => JSON.stringify(course.sched,null,4));
+    let times = courses.map(course => course.sched);
+    let periods = [];
+    for(let course_sched in times){
+      // let obj = JSON.parse(times[course_sched]);
+      let result = "";
+      for(let day in times[course_sched]){
+        if(times[course_sched][day]['start']){
+          result += day + ": " + times[course_sched][day]['start'] + "-" + times[course_sched][day]['end'] + "|";
+        }
+      }
+      if(result){
+        periods.push(result);
+      }
+    }
+    periods = periods.filter((x, i, a) => a.indexOf(x) == i);
     let types = ['100', '200', '300'];
-    console.log("PER: " + times);
     return (
       <div>
-      Hello world!
         <HeaderBar />
         <NavRow category="Department" parity="even" first={true} tiledata={departments} /> 
-        <NavRow category="Period" parity="odd" tiledata={times} />
+        <NavRow category="Period" parity="odd" tiledata={periods} />
         <NavRow category="Type" parity="even" tiledata={types} />
         <button> Browse All </button>
       </div>
