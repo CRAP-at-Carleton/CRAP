@@ -18,7 +18,7 @@ class Tile extends React.Component {
   componentWillReceiveProps(nextProps){
     this.setState({isSelected: this.props.num === nextProps.selected});
   }
-  
+
   render() {
   	let parity = ""
     if (this.props.num % 2 === 0){
@@ -27,11 +27,21 @@ class Tile extends React.Component {
       parity = "odd"
     }
    	let selected = (this.props.selected === this.props.num) ? "selected" : "";
-    return (
-    	<div className={classNames("Tile",parity, selected)} onClick={this.handleClick}>
-    	  This tile is about {this.props.contents}.
-    	</div>
-	)
+
+   	if(this.props.isGrid){
+	  return (
+	  <div className={classNames("Tile",parity, selected)} onClick={this.handleClick}>
+	    This tile is about {this.props.contents}.
+	  </div>
+	  );
+   	} else {
+   	  return(
+   	  <div className={classNames("Tile",parity, selected)}>
+   	    This tile is about {this.props.contents}.
+   	  </div>
+   	  )
+   	}
+
   }
 }
 
