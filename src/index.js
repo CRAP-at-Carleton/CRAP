@@ -1,17 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './index.css';
+import reducers from './reducers';
 import Home from './Home';
 import registerServiceWorker from './registerServiceWorker';
 
-const router = (
-  <BrowserRouter>
-    <Switch>
-      <Route exact path='/' component={Home} />
-    </Switch>
-  </BrowserRouter>
-);
+const store = createStore(reducers);
 
-ReactDOM.render(router, document.getElementById('root'));
+ReactDOM.render(
+  <Provider store={store}>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path='/' component={Home} />
+      </Switch>
+    </BrowserRouter>
+  </Provider>,
+  document.getElementById('root')
+);
 registerServiceWorker();
