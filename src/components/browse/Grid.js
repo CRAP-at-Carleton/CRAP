@@ -19,21 +19,25 @@ class Grid extends React.Component {
 
   render() {
   	this.courseTiles = [];
+
+    //where to insert the big tile
   	let insertLocation = (Math.floor(this.state.selected/3)+1)*3;
-    console.log("selected, insert " + this.state.selected + " " + insertLocation);
-  	let infoTile = (<BigTile contents={this.props.courses[0]}
-  		selected={this.state.selected} registerSelection={this.handleClick}/>);
-  	for (let i=0; i < insertLocation; i++){
-  		this.courseTiles.push((<Tile key={i} contents={this.props.courses[i]} num={i}
-        selected={this.state.selected} registerSelection={this.handleClick} isGrid={true}/>));
-  	}
-    if(this.state.selected !== -1){
-      this.courseTiles.push(infoTile);      
+  	// let infoTile = (<BigTile contents={this.props.courses[this.state.selected]}/>);
+
+    //insert everything before the big tile
+    for (let row=0; row < this.props.courses.length / 3; row++){
+      for (let column=0; column < 3; column++){
+        let index = (3 * row) + column;
+        this.courseTiles.push((<Tile key={index} contents={this.props.courses[index]} num={index}
+          selected={this.state.selected} registerSelection={this.handleClick} isGrid={true}/>));
+      }
+      if(3 * row <= this.state.selected && 3 * (row + 1) > this.state.selected){
+        this.courseTiles.push((<BigTile contents={this.props.courses[this.state.selected]}
+          expanded={true}/>));
+      } else{
+        this.courseTiles.push(<BigTile contents='' expanded={false}/>);
+      }
     }
-  	for (let i=insertLocation; i < this.props.courses.length; i++){
-  		this.courseTiles.push((<Tile key={i} contents={this.props.courses[i]} num={i} 
-  			selected={this.state.selected} registerSelection={this.handleClick} isGrid={true}/>));
-  	}
     return (
       <div className="grid">{this.courseTiles}</div>
     );
