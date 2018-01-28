@@ -4,12 +4,24 @@ import { fetchCourses } from '../../actions';
 import HeaderBar from '../homepage/HeaderBar'
 import SideBar from './SideBar'
 import Grid from './Grid'
-// import './Browse.css';
+import './Browse.css';
 
 class Browse extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {courses: []};
+    this.state = {
+      courses: [],
+      selectedFilters: {
+        dept: [],
+        type: [],
+        period: []
+      }
+    };
+    this.handleFilterClick = this.handleFilterClick.bind(this);
+  }
+
+  handleFilterClick(type, value, selected) {
+
   }
 
   componentWillMount() {
@@ -23,10 +35,12 @@ class Browse extends React.Component {
 
     let courseNames = this.props.courses.map(course => course.dept + course.course_num);
     return (
-      <div>
+      <div class="browse">
         <HeaderBar />
-        <SideBar />
-        <Grid courses={courseNames}/>
+        <div class="main">
+          <SideBar />
+          <Grid courses={courseNames}/>
+        </div>
       </div>
     );
   }
