@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { fetchCourses } from '../../actions';
 import HeaderBar from '../homepage/HeaderBar'
 import SideBar from './SideBar'
 import Grid from './Grid'
@@ -8,6 +10,7 @@ class Browse extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      courses: [],
       selectedFilters: {
         dept: [],
         type: [],
@@ -18,7 +21,11 @@ class Browse extends React.Component {
   }
 
   handleFilterClick(type, value, selected) {
-    
+
+  }
+
+  componentWillMount() {
+    this.props.fetchCourses();
   }
 
   render() {
@@ -26,16 +33,29 @@ class Browse extends React.Component {
     let periods = ['1', '2', '3', '4', '5', '6', '7','8','9','0','1','2','3','4','5','6', '7','8','9','0','1','2','3','4','5'];
     // let types = ['100', '200', '300', 'D', 'Off-Campus', 'Comps'];
 
+    let courseNames = this.props.courses.map(course => course.dept + course.course_num);
     return (
       <div class="browse">
         <HeaderBar />
         <div class="main">
           <SideBar />
-          <Grid courses={periods}/>
+          <Grid courses={courseNames}/>
         </div>
       </div>
     );
   }
 }
 
-export default Browse;
+function mapStateToProps(state) {
+  return {
+    courses: state.courses
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchCourses: () => dispatch(fetchCourses())
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Browse);

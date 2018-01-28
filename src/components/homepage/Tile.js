@@ -20,28 +20,21 @@ class Tile extends React.Component {
   }
 
   render() {
-  	let parity = ""
-    if (this.props.num % 2 === 0){
-      parity = "even"
-    } else {
-      parity = "odd"
-    }
    	let selected = (this.props.selected === this.props.num) ? "selected" : "";
 
    	if(this.props.isGrid){
-	  return (
-	  <div className={classNames("Tile",parity, selected)} onClick={this.handleClick}>
-	    This tile is about {this.props.contents}.
-	  </div>
-	  );
+	    return (
+	      <div className={classNames("Tile", selected)} onClick={this.handleClick}>
+	        {this.props.contents}
+	      </div>
+	    );
    	} else {
    	  return(
-   	  <div className={classNames("Tile",parity, selected)}>
-   	    This tile is about {this.props.contents}.
-   	  </div>
+   	    <div className={classNames("Tile", selected)}>
+   	      {this.props.contents}
+        </div>
    	  )
    	}
-
   }
 }
 

@@ -7,6 +7,7 @@ class HeaderBar extends React.Component {
     return (
       <div className="header">
         <NavTabs/>
+
       </div>
     )
   }
