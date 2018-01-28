@@ -10,7 +10,6 @@ class Browse extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      courses: [],
       selectedFilters: {
         dept: [],
         type: [],
@@ -21,7 +20,18 @@ class Browse extends React.Component {
   }
 
   handleFilterClick(type, value, selected) {
-
+    if (selected) {
+      this.setState(prevState => {
+        prevState.selectedFilters[type].push(value);
+        return prevState;
+      })
+    } else {
+      this.setState(prevState => {
+        const index = prevState.selectedFilters[type].indexOf(value);
+        prevState.selectedFilters[type].splice(index, 1);
+        return prevState;
+      })
+    }
   }
 
   componentWillMount() {
@@ -29,16 +39,12 @@ class Browse extends React.Component {
   }
 
   render() {
-    // let depts = ['A', 'B', 'C', 'D', 'E', 'F'];
-    let periods = ['1', '2', '3', '4', '5', '6', '7','8','9','0','1','2','3','4','5','6', '7','8','9','0','1','2','3','4','5'];
-    // let types = ['100', '200', '300', 'D', 'Off-Campus', 'Comps'];
-
     let courseNames = this.props.courses.map(course => course.dept + course.course_num);
     return (
-      <div class="browse">
+      <div className="browse">
         <HeaderBar />
-        <div class="main">
-          <SideBar />
+        <div className="main">
+          <SideBar handleFilterClick={this.handleFilterClick} />
           <Grid courses={courseNames}/>
         </div>
       </div>

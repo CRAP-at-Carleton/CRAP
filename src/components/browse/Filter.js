@@ -10,7 +10,9 @@ class Filter extends React.Component {
 
   handleClick() {
     this.props.handleClick(this.props.type, this.props.value, !this.state.selected);
-    this.setState(prevState => { selected: !prevState.selected });
+    this.setState(prevState => {
+      return { selected: !prevState.selected }
+    });
   }
 
   render() {
