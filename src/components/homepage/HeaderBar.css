@@ -2,4 +2,38 @@
 	background-color: cornflowerblue;
 	height : 20vh;
 	text-align: center;
+	position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+a {
+   text-decoration: none;
+}
+
+/* unvisited link */
+a:link {
+   color: black;
+}
+
+/* visited link */
+a:visited {
+   color: black;
+}
+
+/* mouse over link */
+a:hover {
+   color: #734d26;
+}
+
+/* selected link */
+a:active {
+   color: blue;
+}
+
+.header h2 {
+  font-size: 1.1em;
+  font-style: italic;
 }

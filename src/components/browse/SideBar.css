@@ -1,0 +1,7 @@
+.sidebar {
+	float: left;
+	width: 10vw;
+	background-color: gold;
+	height: 80vh;
+	position:fixed;
+}

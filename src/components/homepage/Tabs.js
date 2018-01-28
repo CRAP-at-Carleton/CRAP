@@ -1,7 +1,7 @@
 import React from 'react'
 import './HeaderBar.css'
 
-class HeaderBar extends React.Component {
+class Tabs extends React.Component {
   render() {
     return (
       <div className="header">
@@ -12,4 +12,4 @@ class HeaderBar extends React.Component {
   }
 }
 
-export default HeaderBar;
+export default Tabs;

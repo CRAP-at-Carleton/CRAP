@@ -23,7 +23,7 @@ class Home extends React.Component {
     return (
       <div>
         <HeaderBar />
-        <NavRow category="Department" parity="even" tiledata={periods} />
+        <NavRow category="Department" parity="even" first={true} tiledata={periods} />
         <NavRow category="Period" parity="odd" tiledata={periods} />
         <NavRow category="Type" parity="even" tiledata={this.props.courses} />
         <button> Browse All </button>
