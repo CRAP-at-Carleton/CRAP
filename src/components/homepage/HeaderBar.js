@@ -8,7 +8,8 @@ class HeaderBar extends React.Component {
       <div className="header">
         <h1><a href='/'>CRAP@Carleton</a></h1>
         <h2>"Course Registration and Planning"</h2>
-        <NavTabs />
+        <NavTabs/>
+
       </div>
     )
   }
