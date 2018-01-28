@@ -4,7 +4,13 @@ import './BigTile.css';
 
 class BigTile extends React.Component {
   render() {
-    return <div className={classNames("bigTile", "Tile")}>This big tile is about {this.props.contents}.</div>;
+    console.log(this.props.expanded);
+    return (
+
+    	<div className={classNames("bigTile", "Tile",{"expanded":this.props.expanded})}>
+    	  This big tile is about {this.props.contents}.
+    	</div>
+    )
   }
 }
 

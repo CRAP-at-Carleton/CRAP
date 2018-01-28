@@ -2,5 +2,17 @@
 	background:red;
 	width:98%;
 	min-width: 98%;
+	height: 0px;
+	max-height: 0px;
+	min-height: 0px;
+	border: 0px;
+	padding: 0px;
+	opacity: 0;
+	transition: height 2s;
+}
+
+.bigTile.expanded {
+	height: 200px;
 	min-height: 200px;
+	opacity: 100;
 }
