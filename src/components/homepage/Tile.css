@@ -2,7 +2,16 @@
 	border-radius: 25px;
 	border: 2px solid #2F5597; 
 	background: #E7E6E6;
-	z-index: 900;
-	flex: 1;
+	z-index: 5;
+	/*flex: 1;*/
+	flex: 1 1 calc(33% - 2em);
 	min-height:100px;
 }
+
+.Tile.selected {
+	background:red;
+}
+/*
+.tilecontainer {
+	flex: 1 1 calc(33% - 2em);
+}*/
