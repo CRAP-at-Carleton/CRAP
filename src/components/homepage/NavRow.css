@@ -5,6 +5,10 @@
 	overflow-y: hidden;	
 }
 
+.navrow.first {
+	margin-top: 20vh;
+}
+
 .navrow.odd {
 	border:1px solid #FFC000;
 	background-color: #FFC000;

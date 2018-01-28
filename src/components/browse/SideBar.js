@@ -5,7 +5,7 @@ class SideBar extends React.Component {
   render() {
   	//get courses and build a tilecontainer
     return (
-      <div> This is the sidebar. </div>
+      <div className="sidebar"> This is the sidebar. </div>
     );
   }
 }
