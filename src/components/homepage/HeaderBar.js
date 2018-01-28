@@ -9,6 +9,7 @@ class HeaderBar extends React.Component {
         <h1><a href='/'>CRAP@Carleton</a></h1>
         <h2>"Course Registration and Planning"</h2>
         <NavTabs/>
+
       </div>
     )
   }
