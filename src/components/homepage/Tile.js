@@ -4,15 +4,13 @@ import './Tile.css';
 
 class Tile extends React.Component {
   render() {
-
   	let parity = ""
     if (this.props.number % 2 === 0){
       parity = "even"
     } else {
       parity = "odd"
     }
-    return <div className={classNames("Tile",parity)}>This tile is about {this.props.contents}.</div>;
-
+    return <div className={classNames("Tile",parity)}>{this.props.contents}</div>;
   }
 }
 
