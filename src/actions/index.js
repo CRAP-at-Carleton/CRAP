@@ -20,6 +20,6 @@ export function fetchCourses() {
     console.log(fetch);
     return fetch('http://crap-db.herokuapp.com/courses')
       .then(response => response.json())
-      .then(json => dispatch(receiveCourses(json)));
+      .then(json => dispatch(receiveCourses(json)), console.log("Something went wrong."));
   }
 }

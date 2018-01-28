@@ -6,12 +6,9 @@
 	/*flex: 1;*/
 	flex: 1 1 calc(33% - 2em);
 	min-height:100px;
+	min-width:100px;
 }
 
 .Tile.selected {
 	background:red;
 }
-/*
-.tilecontainer {
-	flex: 1 1 calc(33% - 2em);
-}*/
