@@ -1,11 +1,14 @@
 .Tile {
 	border-radius: 25px;
-	border: 2px solid #2F5597; 
+	border: 2px solid #2F5597;
 	background: #E7E6E6;
 	z-index: 5;
 	/*flex: 1;*/
 	flex: 1 1 calc(33% - 2em);
 	min-height:100px;
+	margin: 4px;
+	text-align: center;
+	line-height: 100px;
 	min-width:100px;
 }
 
