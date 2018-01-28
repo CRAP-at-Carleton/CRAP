@@ -1,0 +1,12 @@
+.navrow {
+	text-align: center;
+	height: 23vh;
+}
+
+.navrow.odd {
+		background-color: antiquewhite;
+}
+
+.navrow.even {
+	background-color: aliceblue;
+}

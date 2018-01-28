@@ -1,0 +1,12 @@
+.Tile {
+	width: 10vw;
+	height: 10vw;
+}
+
+.Tile.odd {
+	background-color: red;
+}
+
+.Tile.even {
+	background-color: blue;
+}
