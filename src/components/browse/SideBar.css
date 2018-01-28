@@ -1,7 +1,19 @@
 .sidebar {
 	float: left;
-	width: 10vw;
+	width: 20vw;
 	background-color: gold;
-	height: 80vh;
+	height: 100vh;
 	position:fixed;
+}
+
+.search {
+	padding: 14px;
+}
+
+.search input {
+	width: 100%;
+}
+
+.filters {
+
 }

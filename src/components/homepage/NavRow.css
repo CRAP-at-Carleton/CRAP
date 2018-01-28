@@ -2,12 +2,8 @@
 	text-align: center;
 	height: 23vh;
 	overflow: auto;
-	overflow-y: hidden;	
+	overflow-y: hidden;
 	min-height: 150px;
-}
-
-.navrow.first {
-	margin-top: 20vh;
 }
 
 .navrow.odd {
