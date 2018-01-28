@@ -1,12 +1,8 @@
 .Tile {
-	width: 10vw;
-	height: 10vw;
-}
-
-.Tile.odd {
-	background-color: red;
-}
-
-.Tile.even {
-	background-color: blue;
+	border-radius: 25px;
+	border: 2px solid #2F5597; 
+	background: #E7E6E6;
+	z-index: 900;
+	display: inline;
+	flex: 1;
 }

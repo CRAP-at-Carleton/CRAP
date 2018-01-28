@@ -5,16 +5,16 @@ import './Home.css';
 
 class Home extends React.Component {
   render() {
-    let depts = ['Computer Science', 'English', 'Chemistry', 'Math', 'Basket Weaving', 'Music'];
-    let periods = ['1a', '2a', '3a', '4a', '5a', '6a'];
-    let types = ['100', '200', '300', 'Independent Study', 'Off-Campus', 'Comps'];
+    // let depts = ['A', 'B', 'C', 'D', 'E', 'F'];
+    let periods = ['1', '2', '3', '4', '5', '6', '7','8','9','0','1','2','3','4','5'];
+    // let types = ['100', '200', '300', 'D', 'Off-Campus', 'Comps'];
 
     return (
       <div>
       <HeaderBar />
-      <NavRow category="Department" parity="even" tiledata={depts}/>
+      <NavRow category="Department" parity="even" tiledata={periods}/>
       <NavRow category="Period" parity="odd" tiledata={periods}/>
-      <NavRow category="Type" parity="even" tiledata={types}/>
+      <NavRow category="Type" parity="even" tiledata={periods}/>
       <button> Browse All </button>
       </div>
     );

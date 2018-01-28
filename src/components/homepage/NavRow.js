@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import TileContainer from './TileContainer'
+import TileRowContainer from './TileRowContainer'
 import './NavRow.css'
 
 class NavRow extends React.Component {
@@ -9,9 +9,7 @@ class NavRow extends React.Component {
     return (
       <div className={classNames("navrow",this.props.parity)}> 
     	This is the {this.props.category} nav row.
-    	<div>
-    	  <TileContainer tiledata={this.props.tiledata}/>
-    	</div> 
+  	  <TileRowContainer tiledata={this.props.tiledata}/>
       </div>
     );
   }

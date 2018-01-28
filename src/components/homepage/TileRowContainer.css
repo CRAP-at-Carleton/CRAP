@@ -1,0 +1,14 @@
+.TileRowContainer {
+	display: flex;	
+	white-space: nowrap;
+	margin-right: -999em;
+	list-style: none;
+	float: left;
+	padding-left: 0px;
+	height:80%;
+	padding-top: 5px;
+}
+
+.TileRowContainer>li {
+	display: flex;
+}
