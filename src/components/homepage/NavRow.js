@@ -6,7 +6,6 @@ import './NavRow.css'
 class NavRow extends React.Component {
   render() {
   	//get courses and build a tilecontainer
-  	console.log("nr 421: " + this.props.tiledata);
     return (
       <div className={classNames("navrow",this.props.parity,{"first":this.props.first})}> 
     	This is the {this.props.category} nav row.
