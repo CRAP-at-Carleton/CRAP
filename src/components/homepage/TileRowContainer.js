@@ -7,7 +7,7 @@ class TileRowContainer extends React.Component {
   	let tiles = []
   	for (let i = 0; i < this.props.tiledata.length; i++){
   	  tiles.push(
-        <li><Tile key={i} number={i} contents={this.props.tiledata[i]} /></li>
+        <li><Tile key={i} num={i} contents={this.props.tiledata[i]} isGrid={false} /></li>
       );
   	}
 
