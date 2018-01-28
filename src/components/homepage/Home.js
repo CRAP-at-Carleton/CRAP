@@ -22,16 +22,16 @@ class Home extends React.Component {
 
     // let courseNames = this.props.courses.map(course => course.dept + course.course_num);
     let courses = this.props.courses;
-    let departments = courses.map(course => course.dept);
-    console.log("dept: " + departments);
+    let departments = [...new Set(courses.map(course => course.dept))];
+    // let periods = [...new Set(courses.map(course => course.sched)];
     return (
       <div>
       Hello world!
-        // <HeaderBar />
-        // <NavRow category="Department" parity="even" first={true} tiledata={departments} /> 
-        // <NavRow category="Period" parity="odd" tiledata={this.props.courses} />
-        // <NavRow category="Type" parity="even" tiledata={this.props.courses} />
-        // <button> Browse All </button>
+        <HeaderBar />
+        <NavRow category="Department" parity="even" first={true} tiledata={departments} /> 
+        {/*<NavRow category="Period" parity="odd" tiledata={this.props.courses} />*/}
+        {/*<NavRow category="Type" parity="even" tiledata={this.props.courses} />*/}
+        <button> Browse All </button>
       </div>
     );
   }
