@@ -1,10 +1,8 @@
 .sidebar {
 	float: left;
-	width: 10vw;
+
 	background-color: #FFD44B;
-	height: 80vh;
-	width: 20vw;
-	background-color: #2F5597;
+	width: 19vw;
 	height: 100vh;
 	position:fixed;
 }
