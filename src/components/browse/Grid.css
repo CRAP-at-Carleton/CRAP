@@ -1,8 +1,11 @@
 .grid {
+	width: 80vw;
+	float: right;
 	display: flex;
 	flex-wrap: wrap;
 	margin-top: 20vh;
 	margin-left:10vw;
-	background: #2F5597
-}
+	background: #2F5597;
+	padding: 8px;
 
+}

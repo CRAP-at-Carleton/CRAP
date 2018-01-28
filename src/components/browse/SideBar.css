@@ -3,5 +3,20 @@
 	width: 10vw;
 	background-color: #FFD44B;
 	height: 80vh;
+	width: 20vw;
+	background-color: #2F5597;
+	height: 100vh;
 	position:fixed;
+}
+
+.search {
+	padding: 14px;
+}
+
+.search input {
+	width: 100%;
+}
+
+.filters {
+
 }
