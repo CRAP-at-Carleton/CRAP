@@ -25,13 +25,10 @@ class Tile extends React.Component {
    	if(this.props.isGrid){
 	    return (
 	      <div className={classNames("Tile", selected)} onClick={this.handleClick}>
-	        {this.props.contents.dept} {this.props.contents.course_num}.{this.props.contents.course_section}<br />
-          {this.props.contents.prof}<br />
-          {this.props.contents.room_number}
+	        {this.props.contents}
 	      </div>
 	    );
    	} else {
-      console.log(this.props.contents);
    	  return(
    	    <div className={classNames("Tile", selected)}>
    	      {this.props.contents}
