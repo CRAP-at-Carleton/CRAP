@@ -3,16 +3,35 @@ import classNames from 'classnames';
 import './Tile.css';
 
 class Tile extends React.Component {
-  render() {
+  constructor(props) {
+  	super(props);
+  	this.state = {isSelected: false}
 
+  	this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e){
+  	// this.setState(prevState => ({isSelected: !prevState.isSelected}));
+  	this.props.registerSelection(this.props.num);
+  }
+
+  componentWillReceiveProps(nextProps){
+    this.setState({isSelected: this.props.num === nextProps.selected});
+  }
+  
+  render() {
   	let parity = ""
-    if (this.props.number % 2 === 0){
+    if (this.props.num % 2 === 0){
       parity = "even"
     } else {
       parity = "odd"
     }
-    return <div className={classNames("Tile",parity)}>This tile is about {this.props.contents}.</div>;
-
+   	let selected = (this.props.selected === this.props.num) ? "selected" : "";
+    return (
+    	<div className={classNames("Tile",parity, selected)} onClick={this.handleClick}>
+    	  This tile is about {this.props.contents}.
+    	</div>
+	)
   }
 }
 

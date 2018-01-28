@@ -5,6 +5,3 @@
 	margin-left:10vw;
 }
 
-.grid>.tilecontainer {
-	flex: 1 1 calc(33% - 2em);
-}
