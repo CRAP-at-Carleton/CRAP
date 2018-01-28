@@ -6,7 +6,9 @@ class TileContainer extends React.Component {
   render() {
   	let tiles = []
   	for (let i = 0; i < this.props.tiledata.length; i++){
-  		tiles.push( <Tile number={i} contents={this.props.tiledata[i]}/> );
+  	  tiles.push(
+        <Tile key={i} number={i} contents={this.props.tiledata[i]} />
+      );
   	}
 
     return (
