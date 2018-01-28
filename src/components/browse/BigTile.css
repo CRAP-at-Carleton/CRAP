@@ -8,11 +8,13 @@
 	border: 0px;
 	padding: 0px;
 	opacity: 0;
-	transition: height 2s;
+	transition: min-height 1s;
 }
 
 .bigTile.expanded {
 	height: 200px;
 	min-height: 200px;
 	opacity: 100;
+	border-radius: 25px;
+	border: 2px solid #2F5597;
 }
