@@ -23,3 +23,10 @@ export function fetchCourses() {
       .then(json => dispatch(receiveCourses(json)), console.log("Something went wrong."));
   }
 }
+
+export function saveCourse(id) {
+  return {
+    type: 'SAVE_COURSE',
+    id
+  }
+}

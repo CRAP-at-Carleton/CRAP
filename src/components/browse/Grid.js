@@ -28,8 +28,9 @@ class Grid extends React.Component {
     for (let row=0; row < this.props.courses.length / 3; row++){
       for (let column=0; column < 3; column++){
         let index = (3 * row) + column;
-        this.courseTiles.push((<Tile key={index} contents={this.props.courses[index]} num={index}
-          selected={this.state.selected} registerSelection={this.handleClick} isGrid={true}/>));
+        this.courseTiles.push((<Tile key={index} contents={this.props.courses[index]}
+          courseId={this.props.courseIds[index]} num={index} selected={this.state.selected}
+          registerSelection={this.handleClick} isGrid={true} />));
       }
       if(3 * row <= this.state.selected && 3 * (row + 1) > this.state.selected){
         this.courseTiles.push((<BigTile contents={this.props.courses[this.state.selected]}

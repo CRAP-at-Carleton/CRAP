@@ -40,12 +40,13 @@ class Browse extends React.Component {
 
   render() {
     let courseNames = this.props.courses.map(course => course.dept + course.course_num);
+    let courseIds = this.props.courses.map(course => course._id);
     return (
       <div className="browse">
         <HeaderBar />
         <div className="main">
           <SideBar handleFilterClick={this.handleFilterClick} />
-          <Grid courses={courseNames}/>
+          <Grid courses={courseNames} courseIds={courseIds} />
         </div>
       </div>
     );

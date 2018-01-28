@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { saveCourse } from '../../actions';
 import classNames from 'classnames';
 import './Tile.css';
 
@@ -8,11 +10,16 @@ class Tile extends React.Component {
   	this.state = {isSelected: false}
 
   	this.handleClick = this.handleClick.bind(this);
+    this.saveCourse = this.saveCourse.bind(this);
   }
 
   handleClick(e){
   	// this.setState(prevState => ({isSelected: !prevState.isSelected}));
   	this.props.registerSelection(this.props.num);
+  }
+
+  saveCourse() {
+    this.props.saveCourse(this.props.courseId);
   }
 
   componentWillReceiveProps(nextProps){
@@ -25,6 +32,9 @@ class Tile extends React.Component {
    	if(this.props.isGrid){
 	    return (
 	      <div className={classNames("Tile", selected)} onClick={this.handleClick}>
+          <div className="save-button">
+            <button onClick={this.saveCourse}>Save</button>
+          </div>
 	        {this.props.contents}
 	      </div>
 	    );
@@ -38,4 +48,10 @@ class Tile extends React.Component {
   }
 }
 
-export default Tile;
+function mapDispatchToProps(dispatch) {
+  return {
+    saveCourse: (id) => dispatch(saveCourse(id))
+  };
+}
+
+export default connect(null, mapDispatchToProps)(Tile);
