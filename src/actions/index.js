@@ -24,6 +24,17 @@ export function fetchCourses() {
   }
 }
 
+export function fetchCoursesBy(queryDict) {
+  return dispatch => {
+    dispatch(requestCourses());
+    console.log(fetch)
+    let key = Object.keys(queryDict)[0];
+    return fetch('http://crap-db.herokuapp.com/courses?where={"'+key+'":"'+queryDict[key]+'"}')
+      .then(response => response.json())
+      .then(json => dispatch(receiveCourses(json)), console.log("Something went wrong."));
+  }
+}
+
 export function saveCourse(id) {
   return {
     type: 'SAVE_COURSE',

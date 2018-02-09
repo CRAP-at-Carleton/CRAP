@@ -1,6 +1,7 @@
 import React from 'react';
+import QueryString from 'query-string';
 import { connect } from 'react-redux';
-import { fetchCourses } from '../../actions';
+import { fetchCourses, fetchCoursesBy } from '../../actions';
 import HeaderBar from '../homepage/HeaderBar'
 import SideBar from './SideBar'
 import Grid from './Grid'
@@ -35,10 +36,19 @@ class Browse extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchCourses();
+    const parsedQuery = QueryString.parse(this.props.location.search);
+    if (Object.keys(parsedQuery).length != 0) {
+      this.props.fetchCoursesBy(parsedQuery);
+      console.log('Yo.');
+      console.log(parsedQuery);
+    } else {
+      console.log('No Yo');
+      this.props.fetchCourses();        
+    }
   }
 
   render() {
+    const parsedQuery = QueryString.parse(this.props.location.search);
     let courseNames = this.props.courses.map(course => course.dept + course.course_num);
     let courseIds = this.props.courses.map(course => course._id);
     return (
@@ -61,7 +71,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchCourses: () => dispatch(fetchCourses())
+    fetchCourses: () => dispatch(fetchCourses()),
+    fetchCoursesBy: (query) => dispatch(fetchCoursesBy(query))
   };
 }
 
