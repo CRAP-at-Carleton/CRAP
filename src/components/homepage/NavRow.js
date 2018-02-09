@@ -9,7 +9,7 @@ class NavRow extends React.Component {
     return (
       <div className={classNames("navrow",this.props.parity,{"first":this.props.first})}> 
     	This is the {this.props.category} nav row.
-  	  <TileRowContainer tiledata={this.props.tiledata}/>
+  	  <TileRowContainer tiledata={this.props.tiledata} field={this.props.field} />
       </div>
     );
   }

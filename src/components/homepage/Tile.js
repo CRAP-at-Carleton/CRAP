@@ -9,13 +9,18 @@ class Tile extends React.Component {
   	super(props);
   	this.state = {isSelected: false}
 
-  	this.handleClick = this.handleClick.bind(this);
+  	this.select = this.select.bind(this);
     this.saveCourse = this.saveCourse.bind(this);
+    this.browseBy = this.browseBy.bind(this);
   }
 
-  handleClick(e){
+  select(e){
   	// this.setState(prevState => ({isSelected: !prevState.isSelected}));
   	this.props.registerSelection(this.props.num);
+  }
+
+  browseBy(e){
+    window.location = this.props.queryRedirect;
   }
 
   saveCourse() {
@@ -31,7 +36,7 @@ class Tile extends React.Component {
 
    	if(this.props.isGrid){
 	    return (
-	      <div className={classNames("Tile", selected)} onClick={this.handleClick}>
+	      <div className={classNames("Tile", selected)} onClick={this.select}>
           <div className="save-button">
             <button onClick={this.saveCourse}>Save</button>
           </div>
@@ -40,7 +45,7 @@ class Tile extends React.Component {
 	    );
    	} else {
    	  return(
-   	    <div className={classNames("Tile", selected)}>
+   	    <div className={classNames("Tile", selected)} onClick={this.browseBy}>
    	      {this.props.contents}
         </div>
    	  )
